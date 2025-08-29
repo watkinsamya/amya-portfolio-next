@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>E-Wallet — Case Study | Amya Watkins</title>
+<style>
+:root{--bg:#0b0b0b;--panel:#121212;--text:#f5f5f5;--muted:#a1a1aa;--border:#242424;--radius:18px;--space:clamp(16px,3vw,28px);--max:1200px}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--space)} .header{border-bottom:1px solid var(--border);background:#0d0d0d}
+.inner{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+.nav a{padding:10px 14px;border-radius:12px}.nav a:hover,.nav a[aria-current=page]{background:rgba(139,92,246,.15)}
+.section{padding:calc(var(--space)*1.2) 0} .meta{color:#a1a1aa}
+.grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}@media(max-width:960px){.grid{grid-template-columns:1fr}}
+.stat{background:#121212;border:1px solid var(--border);border-radius:16px;padding:12px}.num{font-weight:800}
+.footer{padding:60px 0;border-top:1px solid var(--border);color:#a1a1aa}
+</style></head>
+<body>
+<header class="header"><div class="container inner">
+  <a href="index.html" style="font-weight:800">AW</a>
+  <nav class="nav"><a href="index.html">Home</a><a href="projects.html" aria-current="page">Projects</a></nav>
+</div></header>
+
+<main class="container">
+  <section class="section">
+    <span class="badge" style="display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:#a1a1aa">Case Study</span>
+    <h1>E-Wallet — Java Swing + SQL</h1>
+    <p class="meta">Role: Java dev • Team: 3 • Stack: Java, Swing, JDBC, SQL</p>
+    <p>GUI-based eWallet with secure login (hashing), expense tracking, and DB persistence. Built with teammates via GitFlow and PR reviews.</p>
+    <div class="grid">
+      <div class="stat"><span class="num">100%</span> <span class="meta">All login acceptance criteria met</span></div>
+      <div class="stat"><span class="num">✓</span> <span class="meta">Hash-verified authentication</span></div>
+    </div>
+  </section>
+
+  <section class="section"><h2>Process</h2>
+    <ul>
+      <li>ERD + tables for users, expenses, wages</li>
+      <li>Implemented hashing + login flow</li>
+      <li>Expense CRUD + summaries</li>
+      <li>Peer reviews + testing</li>
+    </ul>
+  </section>
+
+  <section class="section"><h2>Links</h2>
+    <ul>
+      <li><a href="#" aria-disabled="true">GitHub repo (coming soon)</a></li>
+      <li><a href="#" aria-disabled="true">Demo video (coming soon)</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer"><div class="container"><p>© 2025 Amya Watkins — E-Wallet case study.</p></div></footer>
+</body></html>
