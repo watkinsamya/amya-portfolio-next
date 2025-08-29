@@ -19,40 +19,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
-
-      # Required for GitHub Pages runtime
       - uses: actions/configure-pages@v5
 
-      - name: Install deps
+      - name: Install
         run: npm install
 
       - name: Build (Next static export -> ./out)
         env:
-          # avoid type-check breaking builds while we iterate
           NEXT_TELEMETRY_DISABLED: 1
         run: npm run build
+
+      # 👇 If Next put files under out/amya-portfolio-next/, move them to /out
+      - name: Flatten basePath folder if present
+        run: |
+          REPO="amya-portfolio-next"
+          if [ -d "out/$REPO" ]; then
+            shopt -s dotglob
+            mv out/$REPO/* out/
+            rmdir out/$REPO || true
+          fi
 
       - name: Add .nojekyll and SPA fallback
         run: |
           touch out/.nojekyll
-          # simple SPA fallback (optional)
-          cp out/index.html out/404.html
+          cp out/index.html out/404.html || true
 
-      # Debug: list what we’re uploading so you can confirm index.html exists
-      - name: Show /out contents
+      - name: Show /out contents (debug)
         run: |
           echo "---- /out ----"
           ls -la out
           echo "---- first two levels ----"
           find out -maxdepth 2 -type f | sort
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
