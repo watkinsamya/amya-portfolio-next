@@ -19,15 +19,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
+
+      # Required for GitHub Pages runtime
       - uses: actions/configure-pages@v5
-      - run: npm install
-      - run: npm run build         # creates ./out because of output:'export'
-      - run: ls -la && echo "---- /out ----" && ls -la out && echo "---- /out root tree ----" && find out -maxdepth 2 -type f | sort
-      - uses: actions/upload-pages-artifact@v3
+
+      - name: Install deps
+        run: npm install
+
+      - name: Build (Next static export -> ./out)
+        env:
+          # avoid type-check breaking builds while we iterate
+          NEXT_TELEMETRY_DISABLED: 1
+        run: npm run build
+
+      - name: Add .nojekyll and SPA fallback
+        run: |
+          touch out/.nojekyll
+          # simple SPA fallback (optional)
+          cp out/index.html out/404.html
+
+      # Debug: list what we’re uploading so you can confirm index.html exists
+      - name: Show /out contents
+        run: |
+          echo "---- /out ----"
+          ls -la out
+          echo "---- first two levels ----"
+          find out -maxdepth 2 -type f | sort
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
