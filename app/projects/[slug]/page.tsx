@@ -1,49 +1,88 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProjectBySlug, getProjectSlugs } from "@/data/projects";
+import { projects } from "@/data/projects";
 
-type Props = { params: { slug: string } };
+type PageProps = { params: { slug: string } };
 
+// Pre-generate static paths for export
 export function generateStaticParams() {
-  return getProjectSlugs().map((slug) => ({ slug }));
+  return projects.map(p => ({ slug: p.slug }));
 }
 
-export default function ProjectCaseStudy({ params }: Props) {
-  const project = getProjectBySlug(params.slug);
-  if (!project) notFound();
+// If you want a nice title in the tab (optional, safe with export)
+export const dynamic = "force-static";
+
+export default function ProjectPage({ params }: PageProps) {
+  const project = projects.find(p => p.slug === params.slug);
+  if (!project) return notFound();
 
   return (
-    <main className="min-h-screen bg-white text-gray-900">
-      <article className="mx-auto max-w-3xl px-6 py-12 prose prose-gray">
-        <p><Link href="/projects">← Back to projects</Link></p>
+    <main className="min-h-screen bg-neutral-950 text-white">
+      <div className="max-w-4xl mx-auto px-6 py-16">
+        <Link href="/projects" className="text-sm opacity-70 hover:opacity-100">
+          ← Back to projects
+        </Link>
 
-        <h1 className="!mt-2">{project.title}</h1>
-        <p className="lead">{project.summary}</p>
+        <h1 className="mt-4 text-4xl font-bold">{project.title}</h1>
+        <p className="mt-2 text-neutral-300">{project.subtitle}</p>
 
-        <h2>Overview</h2>
-        <p>Stub content — replace with your real case study.</p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {project.tags.map(t => (
+            <span
+              key={t}
+              className="text-xs rounded-full border border-neutral-700 px-2 py-1"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
 
-        <h2>Process</h2>
-        <ul>
-          <li>Research & discovery</li>
-          <li>Wireframes & prototypes</li>
-          <li>Visual design & implementation</li>
-          <li>Testing & iteration</li>
-        </ul>
+        {project.cover && (
+          /* eslint-disable @next/next/no-img-element */
+          <img
+            src={project.cover}
+            alt={project.title}
+            className="mt-8 w-full rounded-xl border border-neutral-800"
+          />
+        )}
 
-        <div className="mt-8 flex gap-3">
-          {project.demo && (
-            <a className="rounded-md border px-4 py-2" href={project.demo} target="_blank" rel="noreferrer">
-              View demo
+        <div className="prose prose-invert mt-8 max-w-none">
+          <p>{project.summary}</p>
+        </div>
+
+        <div className="mt-10 flex gap-3">
+          {project.caseStudyUrl && (
+            <a
+              href={project.caseStudyUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg border border-neutral-700 px-4 py-2 text-sm hover:bg-neutral-900"
+            >
+              Read full case study
             </a>
           )}
-          {project.code && (
-            <a className="rounded-md border px-4 py-2" href={project.code} target="_blank" rel="noreferrer">
+          {project.codeUrl && (
+            <a
+              href={project.codeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg border border-neutral-700 px-4 py-2 text-sm hover:bg-neutral-900"
+            >
               View code
             </a>
           )}
+          {project.demoUrl && (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg border border-neutral-700 px-4 py-2 text-sm hover:bg-neutral-900"
+            >
+              Live demo
+            </a>
+          )}
         </div>
-      </article>
+      </div>
     </main>
   );
 }

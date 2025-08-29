@@ -1,13 +1,12 @@
-import type { NextConfig } from "next";
-const REPO_NAME = "amya-portfolio-next";
+/** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
 
-const nextConfig: NextConfig = {
+/* IMPORTANT for GitHub Pages */
+const nextConfig = {
   output: "export",
   images: { unoptimized: true },
-  basePath: `/${REPO_NAME}`,
-  assetPrefix: `/${REPO_NAME}/`,
-  trailingSlash: true,
-  typescript: { ignoreBuildErrors: true },  // optional while iterating
-  eslint: { ignoreDuringBuilds: true },     // optional while iterating
+  basePath: isProd ? "/amya-portfolio-next" : "",
+  assetPrefix: isProd ? "/amya-portfolio-next/" : "",
 };
+
 export default nextConfig;
