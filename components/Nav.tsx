@@ -1,43 +1,46 @@
 'use client'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 const links = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#home', label: 'Home', hash: true },
+  { href: '/#about', label: 'About', hash: true },
+  { href: '/#experience', label: 'Experience', hash: true },
+  { href: '/projects', label: 'Projects', hash: false },
+  { href: '/#contact', label: 'Contact', hash: true },
 ]
 
 export default function Nav() {
-  const [active, setActive] = useState('#home')
+  const [active, setActive] = useState('/#home')
 
   useEffect(() => {
-    const handler = () => {
-      const sections = links.map(l => document.querySelector(l.href) as HTMLElement).filter(Boolean)
-      let current = '#home'
-      const scrollY = window.scrollY + 160
-      for (const sec of sections) {
-        if (sec.offsetTop <= scrollY) current = `#${sec.id}`
-      }
+    const onScroll = () => {
+      const ids = ['home','about','experience','contact']
+      let current = '/#home'
+      const y = window.scrollY + 160
+      ids.forEach(id => {
+        const el = document.getElementById(id)
+        if (el && el.offsetTop <= y) current = `/#${id}`
+      })
       setActive(current)
     }
-    handler()
-    window.addEventListener('scroll', handler)
-    return () => window.removeEventListener('scroll', handler)
+    onScroll()
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-neutral-100">
       <nav className="container flex items-center justify-between py-4">
-        <a href="#home" className="font-semibold">Amya</a>
+        <Link href="/#home" className="font-semibold">Amya</Link>
         <ul className="flex gap-4">
           {links.map(l => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
-                className={"px-3 py-2 rounded-full transition " + (active===l.href ? 'bg-pinkbrand-100 text-pinkbrand-700' : 'hover:bg-neutral-100')}
-              >{l.label}</a>
+                className={`px-3 py-2 rounded-full transition ${active===l.href ? 'bg-pinkbrand-100 text-pinkbrand-700' : 'hover:bg-neutral-100'}`}>
+                {l.label}
+              </Link>
             </li>
           ))}
         </ul>

@@ -2,30 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  scroll-behavior: smooth;
-}
+:root { scroll-behavior: smooth; }
 
-body {
-  @apply bg-white text-neutral-900 antialiased;
-}
+body { @apply bg-white text-neutral-900 antialiased; }
 
-.container {
-  @apply max-w-6xl mx-auto px-4;
-}
+.container { @apply max-w-6xl mx-auto px-4; }
+.section { @apply py-20; }
 
-.section {
-  @apply py-20;
-}
+.btn-primary { @apply inline-flex items-center gap-2 rounded-2xl bg-pinkbrand-500 px-5 py-3 font-medium text-white shadow-soft hover:bg-pinkbrand-600 transition; }
+.btn-outline { @apply inline-flex items-center gap-2 rounded-2xl border border-neutral-300 px-4 py-2 text-sm hover:bg-neutral-50 transition; }
 
-.btn-primary {
-  @apply inline-flex items-center gap-2 rounded-2xl bg-pinkbrand-500 px-5 py-3 font-medium text-white shadow-soft hover:bg-pinkbrand-600 transition;
-}
+.card { @apply rounded-2xl border border-neutral-200 p-6 shadow-soft bg-white; }
+.badge { @apply inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-sm; }
 
-.card {
-  @apply rounded-2xl border border-neutral-200 p-6 shadow-soft bg-white;
-}
-
-.badge {
-  @apply inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-sm;
-}
+.prose-basic p { @apply leading-relaxed text-neutral-700; }
+.prose-basic h3 { @apply text-xl font-semibold mt-8 mb-3; }
+.prose-basic ul { @apply list-disc pl-6 space-y-1; }
