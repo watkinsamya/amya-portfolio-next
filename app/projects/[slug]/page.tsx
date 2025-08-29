@@ -1,68 +1,49 @@
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import { ExternalLink, Github } from 'lucide-react'
-import { getProjectBySlug, getProjectSlugs } from '@/data/projects'
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { getProjectBySlug, getProjectSlugs } from "@/data/projects";
 
-type Params = { params: { slug: string } }
+type Props = { params: { slug: string } };
 
 export function generateStaticParams() {
-  return getProjectSlugs().map(slug => ({ slug }))
+  return getProjectSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: Params) {
-  const project = getProjectBySlug(params.slug)
-  return { title: project ? `${project.title} — Case Study` : 'Project — Case Study' }
-}
-
-export default function CaseStudy({ params }: Params) {
-  const project = getProjectBySlug(params.slug)
-  if (!project) return notFound()
+export default function ProjectCaseStudy({ params }: Props) {
+  const project = getProjectBySlug(params.slug);
+  if (!project) notFound();
 
   return (
-    <section className="section">
-      <div className="container">
-        <Link href="/projects" className="btn-outline mb-6 inline-flex">← Back to projects</Link>
-        <h1 className="text-3xl md:text-4xl font-bold">{project.title}</h1>
-        <p className="mt-2 text-neutral-600">{project.description}</p>
+    <main className="min-h-screen bg-white text-gray-900">
+      <article className="mx-auto max-w-3xl px-6 py-12 prose prose-gray">
+        <p><Link href="/projects">← Back to projects</Link></p>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          {project.tags.map(t => <span key={t} className="badge">{t}</span>)}
-        </div>
+        <h1 className="!mt-2">{project.title}</h1>
+        <p className="lead">{project.summary}</p>
 
-        <div className="mt-6 flex flex-wrap gap-3">
+        <h2>Overview</h2>
+        <p>Stub content — replace with your real case study.</p>
+
+        <h2>Process</h2>
+        <ul>
+          <li>Research & discovery</li>
+          <li>Wireframes & prototypes</li>
+          <li>Visual design & implementation</li>
+          <li>Testing & iteration</li>
+        </ul>
+
+        <div className="mt-8 flex gap-3">
           {project.demo && (
-            <a className="btn-primary" href={project.demo} target="_blank" rel="noreferrer">
-              View prototype <ExternalLink size={16}/>
+            <a className="rounded-md border px-4 py-2" href={project.demo} target="_blank" rel="noreferrer">
+              View demo
             </a>
           )}
-          {project.repo && (
-            <a className="btn-outline" href={project.repo} target="_blank" rel="noreferrer">
-              View code <Github size={16}/>
+          {project.code && (
+            <a className="rounded-md border px-4 py-2" href={project.code} target="_blank" rel="noreferrer">
+              View code
             </a>
           )}
         </div>
-
-        {/* Stub write-up — replace with your real case study later */}
-        <div className="prose-basic mt-10 space-y-6">
-          <h3>Overview</h3>
-          <p>
-            Placeholder case study. Replace with problem, goals, constraints, and success metrics. Add key screens, flows,
-            and (ideally) a short video or GIF demonstrating interactions.
-          </p>
-
-          <h3>Process</h3>
-          <ul>
-            <li>Discovery & Research (user goals, competitive scan)</li>
-            <li>Wireframes & IA (low-fi → mid-fi)</li>
-            <li>Visual System (color, type, spacing, components)</li>
-            <li>Prototype & Motion (micro-interactions, transitions)</li>
-            <li>Usability pass & iterations (accessibility, polish)</li>
-          </ul>
-
-          <h3>Outcome</h3>
-          <p>Summarize impact and what you’d do next with more time.</p>
-        </div>
-      </div>
-    </section>
-  )
+      </article>
+    </main>
+  );
 }
