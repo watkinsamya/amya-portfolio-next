@@ -1,7 +1,15 @@
 self.__BUILD_MANIFEST = {
+  "/_error": [
+    "./static/chunks/pages/_error.js"
+  ],
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [],
+    "beforeFiles": [
+      {
+        "source": "/amya-portfolio-next//_next/:path+",
+        "destination": "/amya-portfolio-next/_next/:path+"
+      }
+    ],
     "fallback": []
   },
   "sortedPages": [

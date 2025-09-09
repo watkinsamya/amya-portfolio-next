@@ -72,99 +72,66 @@ function Section({ id, title, children }) {
 "use strict";
 
 __turbopack_context__.s([
-    "default",
-    ()=>__TURBOPACK__default__export__,
     "getProjectBySlug",
-    ()=>getProjectBySlug
+    ()=>getProjectBySlug,
+    "getProjectSlugs",
+    ()=>getProjectSlugs,
+    "projects",
+    ()=>projects
 ]);
 const projects = [
     {
-        slug: 'refreshed-3d-carousel',
-        title: 'Refreshed Probiotic Soda — 3D Carousel UI (Figma)',
-        description: 'Interactive 3D carousel concept with dynamic transitions to boost engagement for a probiotic soda brand.',
+        slug: "probiotic-3d",
+        title: "Refreshed Probiotic Soda — 3D Carousel UI (Figma)",
+        summary: "Interactive 3D carousel concept with smooth micro-interactions.",
         tags: [
-            'Figma',
-            'UI Motion',
-            'Prototype'
+            "UX",
+            "UI",
+            "Figma",
+            "Motion"
         ],
-        demo: 'https://www.figma.com/proto/M0G1ARuvJFHCIIFBCPrPlg/Refreshed?t=WyxayQswpKyth8Wc-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=2-2&starting-point-node-id=2%3A2&show-proto-sidebar=1',
-        image: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=1200&q=60'
+        demo: "https://www.figma.com/proto/M0G1ARuvJFHCIIFBCPrPlg/Refreshed?node-id=2-2&starting-point-node-id=2%3A2"
     },
     {
-        slug: 'mindnest',
-        title: 'MindNest — Mental Health App Prototype',
-        description: 'Mobile experience focused on mood tracking, guided journaling, and calming UI for teens/young adults.',
+        slug: "mindnest",
+        title: "Mindnest — Mental Health App Prototype (Figma)",
+        summary: "Mood tracking, guided journaling, self-care.",
         tags: [
-            'Figma',
-            'UX',
-            'Prototype'
+            "UX",
+            "Prototype",
+            "Figma"
         ],
-        demo: 'https://www.figma.com/proto/JtMmthD0biKAElpL1CXA2i/Good-Health-and-Well-being?node-id=1-3&p=f&t=0mNDI8fXVOG8zJUM-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A3',
-        image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1200&q=60'
+        demo: "https://www.figma.com/proto/JtMmthD0biKAElpL1CXA2i/Good-Health-and-Well-being?node-id=1-3&starting-point-node-id=1%3A3"
     },
     {
-        slug: 'path-in-motion',
-        title: 'Path in Motion — Brand & Content',
-        description: 'Brand/account showcasing internship & job discovery; social strategy, content design, and audience growth experiments.',
+        slug: "path-in-motion",
+        title: "Path in Motion — Brand & Social",
+        summary: "Brand visuals and social content system.",
         tags: [
-            'Branding',
-            'Content',
-            'Social'
+            "Brand",
+            "Graphics",
+            "Content"
         ],
-        demo: 'https://www.instagram.com/pathinmotion/?igsh=MXJrNzJzeGoycmc1dg%3D%3D#',
-        image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=60'
+        demo: "https://www.instagram.com/pathinmotion/"
     },
     {
-        slug: 'adobe-express-1',
-        title: 'Campaign Graphics Set (Adobe Express)',
-        description: 'Published social graphics; color/typography system and export-ready assets.',
+        slug: "ewallet",
+        title: "EWallet App (Java, Swing, SQL)",
+        summary: "GUI app with secure auth and expense tracking.",
         tags: [
-            'Adobe Express',
-            'Graphics'
+            "Java",
+            "Swing",
+            "SQL"
         ],
-        demo: 'https://new.express.adobe.com/publishedV2/urn:aaid:sc:US:2a5f6157-085f-48bd-a08f-c32754cc61e5?category=search',
-        image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=60'
-    },
-    {
-        slug: 'adobe-express-2',
-        title: 'Carousel + Poster Set (Adobe Express)',
-        description: 'Additional published set exploring hierarchy, rhythm, and contrast for engagement.',
-        tags: [
-            'Adobe Express',
-            'Graphics'
-        ],
-        demo: 'https://new.express.adobe.com/publishedV2/urn:aaid:sc:US:1ee6bf81-f788-45ba-8ef0-830b3aa024be?category=search',
-        image: 'https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d5?w=1200&q=60'
-    },
-    {
-        slug: 'ewallet',
-        title: 'EWallet (Java Swing, SQL)',
-        description: 'GUI wallet with login/auth, expense tracking, and planned DB integration; GitFlow + Trello workflow.',
-        tags: [
-            'Java',
-            'Swing',
-            'SQL'
-        ],
-        repo: 'https://github.com/cheesecheeseCHEEESE/Ewallet-SENG210',
-        image: 'https://images.unsplash.com/photo-1554224155-3a589877462f?w=1200&q=60'
-    },
-    {
-        slug: 'legacy-html',
-        title: 'Legacy Projects Page (HTML Portfolio)',
-        description: 'Earlier collection of web work; kept for history and extra context.',
-        tags: [
-            'HTML/CSS',
-            'Archive'
-        ],
-        demo: 'https://watkinsamya.github.io/amya-portfolio/projects.html',
-        image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=60',
-        caseStudy: false
+        code: "https://github.com/watkinsamya"
     }
 ];
 function getProjectBySlug(slug) {
     return projects.find((p)=>p.slug === slug);
 }
-const __TURBOPACK__default__export__ = projects;
+function getProjectSlugs() {
+    return projects.map((p)=>p.slug);
+}
 }),
 "[project]/components/ProjectsGrid.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -182,8 +149,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$projects$2e$ts__$5b$
 ;
 ;
 ;
+const data = __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$projects$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["projects"].map((p)=>({
+        ...p,
+        // map your data keys -> what the grid expects
+        image: p.cover ?? p.image,
+        description: p.summary ?? p.description,
+        repo: p.code ?? p.repo
+    }));
 function ProjectsGrid({ limit }) {
-    const list = typeof limit === 'number' ? __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$projects$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].slice(0, limit) : __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$projects$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"];
+    const list = typeof limit === 'number' ? data.slice(0, limit) : data;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-6",
         children: list.map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -204,21 +178,34 @@ function ProjectsGrid({ limit }) {
                         href: p.demo || p.repo || `/projects/${p.slug}`,
                         target: p.demo || p.repo ? '_blank' : '_self',
                         rel: "noreferrer",
+                        className: "block",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "aspect-[16/10] rounded-xl bg-neutral-100 mb-4",
-                            style: {
-                                backgroundImage: `url(${p.image})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
-                            }
+                            className: "aspect-[16/10] rounded-xl mb-4 overflow-hidden",
+                            children: p.image ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "w-full h-full bg-center bg-cover",
+                                style: {
+                                    backgroundImage: `url(${p.image})`
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/components/ProjectsGrid.tsx",
+                                lineNumber: 43,
+                                columnNumber: 17
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "w-full h-full bg-gradient-to-br from-neutral-200 to-neutral-100 flex items-center justify-center text-neutral-500 text-sm",
+                                children: "No cover image"
+                            }, void 0, false, {
+                                fileName: "[project]/components/ProjectsGrid.tsx",
+                                lineNumber: 48,
+                                columnNumber: 17
+                            }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/ProjectsGrid.tsx",
-                            lineNumber: 19,
+                            lineNumber: 41,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectsGrid.tsx",
-                        lineNumber: 18,
+                        lineNumber: 35,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -226,7 +213,7 @@ function ProjectsGrid({ limit }) {
                         children: p.title
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectsGrid.tsx",
-                        lineNumber: 22,
+                        lineNumber: 55,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -234,7 +221,7 @@ function ProjectsGrid({ limit }) {
                         children: p.description
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectsGrid.tsx",
-                        lineNumber: 23,
+                        lineNumber: 56,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -244,12 +231,12 @@ function ProjectsGrid({ limit }) {
                                 children: t
                             }, t, false, {
                                 fileName: "[project]/components/ProjectsGrid.tsx",
-                                lineNumber: 25,
-                                columnNumber: 30
+                                lineNumber: 60,
+                                columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectsGrid.tsx",
-                        lineNumber: 24,
+                        lineNumber: 58,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -261,7 +248,7 @@ function ProjectsGrid({ limit }) {
                                 children: "Read case study"
                             }, void 0, false, {
                                 fileName: "[project]/components/ProjectsGrid.tsx",
-                                lineNumber: 30,
+                                lineNumber: 67,
                                 columnNumber: 15
                             }, this),
                             p.repo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -272,8 +259,8 @@ function ProjectsGrid({ limit }) {
                                 children: "View code"
                             }, void 0, false, {
                                 fileName: "[project]/components/ProjectsGrid.tsx",
-                                lineNumber: 32,
-                                columnNumber: 24
+                                lineNumber: 72,
+                                columnNumber: 15
                             }, this),
                             !p.repo && p.demo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                 className: "btn-outline",
@@ -283,24 +270,24 @@ function ProjectsGrid({ limit }) {
                                 children: "View prototype"
                             }, void 0, false, {
                                 fileName: "[project]/components/ProjectsGrid.tsx",
-                                lineNumber: 33,
-                                columnNumber: 35
+                                lineNumber: 77,
+                                columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/ProjectsGrid.tsx",
-                        lineNumber: 28,
+                        lineNumber: 64,
                         columnNumber: 11
                     }, this)
                 ]
             }, p.slug, true, {
                 fileName: "[project]/components/ProjectsGrid.tsx",
-                lineNumber: 11,
+                lineNumber: 28,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/ProjectsGrid.tsx",
-        lineNumber: 9,
+        lineNumber: 26,
         columnNumber: 5
     }, this);
 }
