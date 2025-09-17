@@ -19,35 +19,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
           cache: 'npm'
-
       - uses: actions/configure-pages@v5
 
       - name: Install
-        run: npm install
+        run: npm ci
 
       - name: Build (Next static export -> ./out)
         env:
           NEXT_TELEMETRY_DISABLED: 1
         run: npm run build
 
-      # Keep the basePath folder; do NOT flatten it.
-      - name: Add .nojekyll and 404 inside basePath (optional)
+      # When basePath=/amya-portfolio-next, Next places files under /out/amya-portfolio-next.
+      # Move them up so /out has index.html at its root for Pages.
+      - name: Flatten basePath folder if present
+        shell: bash
         run: |
           REPO="amya-portfolio-next"
-          touch "out/.nojekyll"
-          if [ -f "out/$REPO/index.html" ]; then
-            cp "out/$REPO/index.html" "out/$REPO/404.html"
+          if [ -d "out/$REPO" ]; then
+            shopt -s dotglob
+            mv out/$REPO/* out/
+            rmdir out/$REPO || true
           fi
 
-      - name: Show /out contents (debug)
+      - name: Add .nojekyll and SPA fallback
         run: |
-          echo "---- /out ----"
-          find out -maxdepth 3 -type f | sort
+          touch out/.nojekyll
+          cp out/index.html out/404.html || true
 
       - uses: actions/upload-pages-artifact@v3
         with:
