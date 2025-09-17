@@ -88,49 +88,57 @@ __turbopack_context__.s([
 ]);
 const projects = [
     {
-        slug: "probiotic-3d",
-        title: "Refreshed Probiotic Soda — 3D Carousel UI (Figma)",
-        summary: "Interactive 3D carousel concept with smooth micro-interactions.",
+        slug: 'probiotic-3d',
+        title: 'Refreshed Probiotic Soda — 3D Carousel UI (Figma)',
+        summary: 'Interactive 3D carousel concept with smooth micro-interactions.',
         tags: [
-            "UX",
-            "UI",
-            "Figma",
-            "Motion"
+            'UX',
+            'UI',
+            'Figma',
+            'Motion'
         ],
-        demo: "https://www.figma.com/proto/M0G1ARuvJFHCIIFBCPrPlg/Refreshed?node-id=2-2&starting-point-node-id=2%3A2"
+        cover: '/covers/probiotic-3d.png',
+        demo: 'https://www.figma.com/proto/M0G1ARuvJFHCIIFBCPrPlg/Refreshed?node-id=2-2&starting-point-node-id=2%3A2',
+        caseStudy: false
     },
     {
-        slug: "mindnest",
-        title: "Mindnest — Mental Health App Prototype (Figma)",
-        summary: "Mood tracking, guided journaling, self-care.",
+        slug: 'mindnest',
+        title: 'Mindnest — Mental Health App Prototype (Figma)',
+        summary: 'Mood tracking, guided journaling, self-care.',
         tags: [
-            "UX",
-            "Prototype",
-            "Figma"
+            'UX',
+            'Prototype',
+            'Figma'
         ],
-        demo: "https://www.figma.com/proto/JtMmthD0biKAElpL1CXA2i/Good-Health-and-Well-being?node-id=1-3&starting-point-node-id=1%3A3"
+        cover: '/covers/mindnest.png',
+        demo: 'https://www.figma.com/proto/JtMmthD0biKAElpL1CXA2i/Good-Health-and-Well-being?node-id=1-3&starting-point-node-id=1%3A3',
+        caseStudy: true
     },
     {
-        slug: "path-in-motion",
-        title: "Path in Motion — Brand & Social",
-        summary: "Brand visuals and social content system.",
+        slug: 'path-in-motion',
+        title: 'Path in Motion — Brand & Social',
+        summary: 'Brand visuals and social content system.',
         tags: [
-            "Brand",
-            "Graphics",
-            "Content"
+            'Brand',
+            'Graphics',
+            'Content'
         ],
-        demo: "https://www.instagram.com/pathinmotion/"
+        cover: '/covers/path-in-motion.png',
+        demo: 'https://www.instagram.com/pathinmotion/',
+        caseStudy: false
     },
     {
-        slug: "ewallet",
-        title: "EWallet App (Java, Swing, SQL)",
-        summary: "GUI app with secure auth and expense tracking.",
+        slug: 'ewallet',
+        title: 'EWallet App (Java, Swing, SQL)',
+        summary: 'GUI app with secure auth and expense tracking.',
         tags: [
-            "Java",
-            "Swing",
-            "SQL"
+            'Java',
+            'Swing',
+            'SQL'
         ],
-        code: "https://github.com/watkinsamya"
+        cover: '/covers/ewallet.png',
+        code: 'https://github.com/watkinsamya',
+        caseStudy: false
     }
 ];
 function getProjectBySlug(slug) {
@@ -151,6 +159,7 @@ __turbopack_context__.s([
     ()=>ProjectsGrid
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$projects$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/data/projects.ts [app-client] (ecmascript)");
@@ -159,11 +168,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$projects$2e$ts__$5b$
 ;
 ;
 ;
+;
 const data = __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$projects$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["projects"].map((p)=>{
     var _p_cover, _p_summary, _p_code;
     return {
         ...p,
-        // map your data keys -> what the grid expects
         image: (_p_cover = p.cover) !== null && _p_cover !== void 0 ? _p_cover : p.image,
         description: (_p_summary = p.summary) !== null && _p_summary !== void 0 ? _p_summary : p.description,
         repo: (_p_code = p.code) !== null && _p_code !== void 0 ? _p_code : p.repo
@@ -194,32 +203,27 @@ function ProjectsGrid(param) {
                         rel: "noreferrer",
                         className: "block",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "aspect-[16/10] rounded-xl mb-4 overflow-hidden",
-                            children: p.image ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "w-full h-full bg-center bg-cover",
-                                style: {
-                                    backgroundImage: "url(".concat(p.image, ")")
-                                }
+                            className: "relative aspect-[16/10] rounded-xl mb-4 overflow-hidden bg-neutral-100",
+                            children: p.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                src: p.image,
+                                alt: "".concat(p.title, " cover"),
+                                fill: true,
+                                sizes: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
+                                className: "object-cover",
+                                priority: p.slug === 'probiotic-3d'
                             }, void 0, false, {
                                 fileName: "[project]/components/ProjectsGrid.tsx",
-                                lineNumber: 43,
-                                columnNumber: 17
-                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "w-full h-full bg-gradient-to-br from-neutral-200 to-neutral-100 flex items-center justify-center text-neutral-500 text-sm",
-                                children: "No cover image"
-                            }, void 0, false, {
-                                fileName: "[project]/components/ProjectsGrid.tsx",
-                                lineNumber: 48,
+                                lineNumber: 42,
                                 columnNumber: 17
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/ProjectsGrid.tsx",
-                            lineNumber: 41,
+                            lineNumber: 40,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectsGrid.tsx",
-                        lineNumber: 35,
+                        lineNumber: 34,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -227,7 +231,7 @@ function ProjectsGrid(param) {
                         children: p.title
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectsGrid.tsx",
-                        lineNumber: 55,
+                        lineNumber: 54,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -235,7 +239,7 @@ function ProjectsGrid(param) {
                         children: p.description
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectsGrid.tsx",
-                        lineNumber: 56,
+                        lineNumber: 55,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -245,24 +249,24 @@ function ProjectsGrid(param) {
                                 children: t
                             }, t, false, {
                                 fileName: "[project]/components/ProjectsGrid.tsx",
-                                lineNumber: 60,
-                                columnNumber: 15
+                                lineNumber: 58,
+                                columnNumber: 30
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectsGrid.tsx",
-                        lineNumber: 58,
+                        lineNumber: 57,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mt-4 flex flex-wrap gap-2",
                         children: [
-                            p.caseStudy !== false && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            p.caseStudy && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 className: "btn-outline",
                                 href: "/projects/".concat(p.slug),
                                 children: "Read case study"
                             }, void 0, false, {
                                 fileName: "[project]/components/ProjectsGrid.tsx",
-                                lineNumber: 67,
+                                lineNumber: 63,
                                 columnNumber: 15
                             }, this),
                             p.repo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -273,7 +277,7 @@ function ProjectsGrid(param) {
                                 children: "View code"
                             }, void 0, false, {
                                 fileName: "[project]/components/ProjectsGrid.tsx",
-                                lineNumber: 72,
+                                lineNumber: 66,
                                 columnNumber: 15
                             }, this),
                             !p.repo && p.demo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -281,27 +285,27 @@ function ProjectsGrid(param) {
                                 href: p.demo,
                                 target: "_blank",
                                 rel: "noreferrer",
-                                children: "View prototype"
+                                children: "View"
                             }, void 0, false, {
                                 fileName: "[project]/components/ProjectsGrid.tsx",
-                                lineNumber: 77,
+                                lineNumber: 69,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/ProjectsGrid.tsx",
-                        lineNumber: 64,
+                        lineNumber: 61,
                         columnNumber: 11
                     }, this)
                 ]
             }, p.slug, true, {
                 fileName: "[project]/components/ProjectsGrid.tsx",
-                lineNumber: 28,
+                lineNumber: 27,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/ProjectsGrid.tsx",
-        lineNumber: 26,
+        lineNumber: 25,
         columnNumber: 5
     }, this);
 }
@@ -354,7 +358,7 @@ function Home() {
                                 once: true
                             },
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                src: "/amya.png",
+                                src: "/public/amya.png",
                                 alt: "Amya Watkins headshot",
                                 width: 220,
                                 height: 220,
@@ -497,29 +501,29 @@ function Home() {
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
                                     lineNumber: 46,
-                                    columnNumber: 13
+                                    columnNumber: 7
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-sm text-neutral-600",
-                                    children: "Verify provider qualifications, certify claim histories, and manage ERE letters to ensure compliance."
+                                    children: "Verify and manage healthcare provider qualifications to ensure compliance with industry standards and regulations. Certify malpractice claim histories, review medical records for accuracy, and manage Employment Reference & Eligibility (ERE) letters to support provider onboarding. Improved efficiency of credentialing workflows while maintaining a high standard of accuracy and regulatory alignment."
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
                                     lineNumber: 47,
-                                    columnNumber: 13
+                                    columnNumber: 7
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-xs text-neutral-500 mt-2",
                                     children: "Jan 2025 – Present"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 50,
-                                    columnNumber: 13
+                                    lineNumber: 55,
+                                    columnNumber: 7
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.tsx",
                             lineNumber: 45,
-                            columnNumber: 11
+                            columnNumber: 5
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                             className: "card",
@@ -529,41 +533,41 @@ function Home() {
                                     children: "Aptiv — Marketing Intern"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 53,
-                                    columnNumber: 13
+                                    lineNumber: 58,
+                                    columnNumber: 7
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-sm text-neutral-600",
-                                    children: "Launched 3 campaigns (+25% engagement), ran market research, and built a JS/HTML UTM tool to improve usability."
+                                    children: "Co-developed and launched 3 marketing campaigns that increased social engagement by 25%. Conducted market research to identify audience trends and competitors, shaping data-driven marketing strategies. Enhanced an internal UTM generator tool with JavaScript and HTML, improving usability and team adoption across projects."
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 54,
-                                    columnNumber: 13
+                                    lineNumber: 59,
+                                    columnNumber: 7
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-xs text-neutral-500 mt-2",
                                     children: "Jun 2023 – Aug 2023"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 57,
-                                    columnNumber: 13
+                                    lineNumber: 66,
+                                    columnNumber: 7
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 52,
-                            columnNumber: 11
+                            lineNumber: 57,
+                            columnNumber: 5
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.tsx",
                     lineNumber: 44,
-                    columnNumber: 9
+                    columnNumber: 3
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
                 lineNumber: 43,
-                columnNumber: 7
+                columnNumber: 1
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                 id: "projects",
@@ -573,7 +577,7 @@ function Home() {
                         limit: 6
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 64,
+                        lineNumber: 73,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -584,18 +588,18 @@ function Home() {
                             children: "See all projects →"
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 66,
+                            lineNumber: 75,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 65,
+                        lineNumber: 74,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 63,
+                lineNumber: 72,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -609,7 +613,7 @@ function Home() {
                             children: "Open to internships and roles in Front-End, UI/UX, and QA-focused SWE."
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 73,
+                            lineNumber: 82,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -621,7 +625,7 @@ function Home() {
                                     children: "Email Me"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 75,
+                                    lineNumber: 84,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -632,7 +636,7 @@ function Home() {
                                     children: "GitHub"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 76,
+                                    lineNumber: 85,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -643,7 +647,7 @@ function Home() {
                                     children: "LinkedIn"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 77,
+                                    lineNumber: 86,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -654,24 +658,24 @@ function Home() {
                                     children: "Drive Portfolio"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 78,
+                                    lineNumber: 87,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 74,
+                            lineNumber: 83,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 72,
+                    lineNumber: 81,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 71,
+                lineNumber: 80,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -683,7 +687,7 @@ function Home() {
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 83,
+                lineNumber: 92,
                 columnNumber: 7
             }, this)
         ]

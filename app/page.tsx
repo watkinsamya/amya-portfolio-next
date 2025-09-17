@@ -12,7 +12,7 @@ export default function Home() {
       <section id="home" className="section">
         <div className="container grid grid-cols-1 md:grid-cols-[auto,1fr] items-center gap-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <Image src="/amya.png" alt="Amya Watkins headshot" width={220} height={220}
+            <Image src="/public/amya.png" alt="Amya Watkins headshot" width={220} height={220}
               className="rounded-full ring-4 ring-pinkbrand-200" />
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
@@ -39,25 +39,34 @@ export default function Home() {
         </p>
       </Section>
 
-      {/* Experience */}
-      <Section id="experience" title="Experience">
-        <ul className="grid md:grid-cols-2 gap-6">
-          <li className="card">
-            <h3 className="font-semibold">MagMutual — Credentialing Specialist</h3>
-            <p className="text-sm text-neutral-600">
-              Verify provider qualifications, certify claim histories, and manage ERE letters to ensure compliance.
-            </p>
-            <p className="text-xs text-neutral-500 mt-2">Jan 2025 – Present</p>
-          </li>
-          <li className="card">
-            <h3 className="font-semibold">Aptiv — Marketing Intern</h3>
-            <p className="text-sm text-neutral-600">
-              Launched 3 campaigns (+25% engagement), ran market research, and built a JS/HTML UTM tool to improve usability.
-            </p>
-            <p className="text-xs text-neutral-500 mt-2">Jun 2023 – Aug 2023</p>
-          </li>
-        </ul>
-      </Section>
+    {/* Experience */}
+<Section id="experience" title="Experience">
+  <ul className="grid md:grid-cols-2 gap-6">
+    <li className="card">
+      <h3 className="font-semibold">MagMutual — Credentialing Specialist</h3>
+      <p className="text-sm text-neutral-600">
+        Verify and manage healthcare provider qualifications to ensure compliance 
+        with industry standards and regulations. Certify malpractice claim histories, 
+        review medical records for accuracy, and manage Employment Reference & 
+        Eligibility (ERE) letters to support provider onboarding. Improved efficiency 
+        of credentialing workflows while maintaining a high standard of accuracy and 
+        regulatory alignment.
+      </p>
+      <p className="text-xs text-neutral-500 mt-2">Jan 2025 – Present</p>
+    </li>
+    <li className="card">
+      <h3 className="font-semibold">Aptiv — Marketing Intern</h3>
+      <p className="text-sm text-neutral-600">
+        Co-developed and launched 3 marketing campaigns that increased social 
+        engagement by 25%. Conducted market research to identify audience trends 
+        and competitors, shaping data-driven marketing strategies. Enhanced an 
+        internal UTM generator tool with JavaScript and HTML, improving usability 
+        and team adoption across projects.
+      </p>
+      <p className="text-xs text-neutral-500 mt-2">Jun 2023 – Aug 2023</p>
+    </li>
+  </ul>
+</Section>
 
       {/* Featured Projects */}
       <Section id="projects" title="Featured Projects">

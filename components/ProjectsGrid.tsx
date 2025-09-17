@@ -1,10 +1,10 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import type { Project } from '@/data/projects'
 import { projects as raw } from '@/data/projects'
 
-// Normalize fields so the grid can use a single shape.
 type Card = Project & {
   image?: string
   description?: string
@@ -13,7 +13,6 @@ type Card = Project & {
 
 const data: Card[] = raw.map(p => ({
   ...p,
-  // map your data keys -> what the grid expects
   image: p.cover ?? (p as any).image,
   description: p.summary ?? (p as any).description,
   repo: p.code ?? (p as any).repo,
@@ -38,16 +37,16 @@ export default function ProjectsGrid({ limit }: { limit?: number }) {
             rel="noreferrer"
             className="block"
           >
-            <div className="aspect-[16/10] rounded-xl mb-4 overflow-hidden">
-              {p.image ? (
-                <div
-                  className="w-full h-full bg-center bg-cover"
-                  style={{ backgroundImage: `url(${p.image})` }}
+            <div className="relative aspect-[16/10] rounded-xl mb-4 overflow-hidden bg-neutral-100">
+              {p.image && (
+                <Image
+                  src={p.image}
+                  alt={`${p.title} cover`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                  priority={p.slug === 'probiotic-3d'} // first card loads eagerly
                 />
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-neutral-200 to-neutral-100 flex items-center justify-center text-neutral-500 text-sm">
-                  No cover image
-                </div>
               )}
             </div>
           </a>
@@ -56,27 +55,18 @@ export default function ProjectsGrid({ limit }: { limit?: number }) {
           <p className="text-sm text-neutral-600 mt-1 flex-1">{p.description}</p>
 
           <div className="mt-3 flex flex-wrap gap-2">
-            {p.tags.map(t => (
-              <span key={t} className="badge">{t}</span>
-            ))}
+            {p.tags.map(t => <span key={t} className="badge">{t}</span>)}
           </div>
 
           <div className="mt-4 flex flex-wrap gap-2">
-            {/* if you ever add caseStudy:false to an item, this will hide the link */}
-            {(p as any).caseStudy !== false && (
-              <Link className="btn-outline" href={`/projects/${p.slug}`}>
-                Read case study
-              </Link>
+            {p.caseStudy && (
+              <Link className="btn-outline" href={`/projects/${p.slug}`}>Read case study</Link>
             )}
             {p.repo && (
-              <a className="btn-outline" href={p.repo} target="_blank" rel="noreferrer">
-                View code
-              </a>
+              <a className="btn-outline" href={p.repo} target="_blank" rel="noreferrer">View code</a>
             )}
             {!p.repo && p.demo && (
-              <a className="btn-outline" href={p.demo} target="_blank" rel="noreferrer">
-                View prototype
-              </a>
+              <a className="btn-outline" href={p.demo} target="_blank" rel="noreferrer">View</a>
             )}
           </div>
         </motion.div>
