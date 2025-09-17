@@ -21,22 +21,19 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
-      - uses: actions/configure-pages@v5
 
       - name: Install
         run: npm ci
 
-      - name: Build (Next static export -> ./out)
+      - name: Build (next export -> ./out)
         env:
           NEXT_TELEMETRY_DISABLED: 1
         run: npm run build
 
-      # When basePath=/amya-portfolio-next, Next places files under /out/amya-portfolio-next.
-      # Move them up so /out has index.html at its root for Pages.
+      # Next puts files under out/<basePath>/ when basePath is set.
       - name: Flatten basePath folder if present
-        shell: bash
         run: |
           REPO="amya-portfolio-next"
           if [ -d "out/$REPO" ]; then
@@ -49,6 +46,11 @@ jobs:
         run: |
           touch out/.nojekyll
           cp out/index.html out/404.html || true
+
+      - name: Show /out (debug)
+        run: |
+          echo "---- /out ----"
+          ls -la out
 
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -63,3 +65,4 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+

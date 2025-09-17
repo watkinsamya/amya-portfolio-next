@@ -32,8 +32,7 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-neutral-100">
       <nav className="container flex items-center justify-between py-4">
-        {/* was: <Link ...>Amya</Link> — removed */}
-        <div />
+        <Link href="/#home" className="font-semibold">Amya</Link>
         <ul className="flex gap-4">
           {links.map(l => (
             <li key={l.href}>

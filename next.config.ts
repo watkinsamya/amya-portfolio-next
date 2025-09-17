@@ -1,18 +1,26 @@
 // next.config.ts
 import type { NextConfig } from "next";
 
-const REPO = "amya-portfolio-next";
+const REPO_NAME = "amya-portfolio-next";
 
 const nextConfig: NextConfig = {
-  output: "export",                 // produce static files in ./out
-  images: { unoptimized: true },    // required for Pages
-  basePath: `/${REPO}`,             // site lives at /amya-portfolio-next
-  assetPrefix: `/${REPO}/`,
+  // Static export for Pages
+  output: "export",
+
+  // GitHub Pages serves your site at /<repo>/
+  basePath: `/${REPO_NAME}`,
+  assetPrefix: `/${REPO_NAME}/`,
+
+  // Better for static hosting:
   trailingSlash: true,
 
-  // don’t block CI on lint/type warnings while you iterate
+  // Images come from /public — don't use the optimizer on static hosting
+  images: { unoptimized: true },
+
+  // Keep the build lenient while you iterate
   typescript: { ignoreBuildErrors: true },
   eslint: { ignoreDuringBuilds: true },
 };
 
 export default nextConfig;
+
