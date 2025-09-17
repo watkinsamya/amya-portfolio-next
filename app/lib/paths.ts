@@ -1,6 +1,7 @@
 // app/lib/paths.ts
-// Prefix absolute paths when running on GitHub Pages (project site).
-const PROD_BASE = '/amya-portfolio-next'
+export const withBase = (p: string) => {
+  // In dev this is '', on GitHub Pages your workflow sets it to '/amya-portfolio-next'
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  return `${base}${p}`;
+};
 
-export const withBase = (p: string) =>
-  (process.env.NODE_ENV === 'production' ? PROD_BASE : '') + p

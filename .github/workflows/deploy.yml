@@ -27,10 +27,12 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Build (next export -> ./out)
+      - name: Build (Next static export -> ./out)
         env:
           NEXT_TELEMETRY_DISABLED: 1
+          NEXT_PUBLIC_BASE_PATH: /amya-portfolio-next   # 👈 important for withBase()
         run: npm run build
+
 
       # Next puts files under out/<basePath>/ when basePath is set.
       - name: Flatten basePath folder if present
