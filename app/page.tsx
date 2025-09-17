@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Section from '@/components/Section'
 import ProjectsGrid from '@/components/ProjectsGrid'
 import { Mail } from 'lucide-react'
-import { withBase } from '@/lib/prefix' // ✅ add this import
+import { withBase } from '@/app/lib/paths'
 
 export default function Home() {
   return (
@@ -12,34 +12,22 @@ export default function Home() {
       {/* Hero */}
       <section id="home" className="section">
         <div className="container grid grid-cols-1 md:grid-cols-[auto,1fr] items-center gap-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            {/* use <img> with withBase so it works on GitHub Pages basePath and Vercel */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <img
-              src={withBase('/amya.png')}                // amya.png must be in /public
+              src={withBase('/amya.png')}               // ← lives at public/amya.png
               alt="Amya Watkins headshot"
               width={220}
               height={220}
-              className="rounded-full object-cover w-[220px] h-[220px] ring-4 ring-pinkbrand-200"
+              className="rounded-full ring-4 ring-pinkbrand-200 object-cover w-[220px] h-[220px]"
             />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h1 className="text-4xl md:text-5xl font-bold">Amya Watkins</h1>
             <p className="mt-3 text-lg text-neutral-600">
               Front-End Developer & UX Designer · Smyrna, GA
             </p>
-            <a href="#contact" className="btn-primary mt-6 inline-flex">
-              <Mail size={18} />
-              Let’s work together
-            </a>
+            <a href="#contact" className="btn-primary mt-6 inline-flex"><Mail size={18}/>Let’s work together</a>
             <div className="mt-6 flex gap-3">
               <span className="badge">Creative Design</span>
               <span className="badge">Frontend Focus</span>
@@ -64,10 +52,12 @@ export default function Home() {
           <li className="card">
             <h3 className="font-semibold">MagMutual — Credentialing Specialist</h3>
             <p className="text-sm text-neutral-600">
-              Verify and manage healthcare provider qualifications to ensure compliance with industry standards and regulations.
-              Certify malpractice claim histories, review medical records for accuracy, and manage Employment Reference & Eligibility
-              (ERE) letters to support provider onboarding. Improved efficiency of credentialing workflows while maintaining a high
-              standard of accuracy and regulatory alignment.
+              Verify and manage healthcare provider qualifications to ensure compliance
+              with industry standards and regulations. Certify malpractice claim histories,
+              review medical records for accuracy, and manage Employment Reference &
+              Eligibility (ERE) letters to support provider onboarding. Improved efficiency
+              of credentialing workflows while maintaining a high standard of accuracy and
+              regulatory alignment.
             </p>
             <p className="text-xs text-neutral-500 mt-2">Jan 2025 – Present</p>
           </li>
@@ -75,9 +65,11 @@ export default function Home() {
           <li className="card">
             <h3 className="font-semibold">Aptiv — Marketing Intern</h3>
             <p className="text-sm text-neutral-600">
-              Co-developed and launched 3 marketing campaigns that increased social engagement by 25%. Conducted market research to
-              identify audience trends and competitors, shaping data-driven marketing strategies. Enhanced an internal UTM generator
-              tool with JavaScript and HTML, improving usability and team adoption across projects.
+              Co-developed and launched 3 marketing campaigns that increased social
+              engagement by 25%. Conducted market research to identify audience trends
+              and competitors, shaping data-driven marketing strategies. Enhanced an
+              internal UTM generator tool with JavaScript and HTML, improving usability
+              and team adoption across projects.
             </p>
             <p className="text-xs text-neutral-500 mt-2">Jun 2023 – Aug 2023</p>
           </li>
@@ -99,7 +91,7 @@ export default function Home() {
           <div className="mt-4 flex flex-wrap gap-3">
             <a className="btn-primary" href="mailto:watkinsamya03@gmail.com">Email Me</a>
             <a className="badge" href="https://github.com/watkinsamya" target="_blank" rel="noreferrer">GitHub</a>
-            <a className="badge" href="https://www.linkedin.com/in/amya-watkins-4b1025193/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a className="badge" href="https://www.linkedin.com/in/amya-watkins-4b1025193" target="_blank" rel="noreferrer">LinkedIn</a>
             <a className="badge" href="https://drive.google.com/drive/folders/12QYLuRTxPMjb6VoYipXnLbwtjQc6GmCr" target="_blank" rel="noreferrer">Drive Portfolio</a>
           </div>
         </div>
@@ -111,3 +103,4 @@ export default function Home() {
     </>
   )
 }
+
