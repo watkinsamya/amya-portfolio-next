@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import type { Project } from '@/data/projects'
 import { projects as raw } from '@/data/projects'
-import { withBase } from '@/app/lib/paths'   // keep for GH Pages image paths
+import { withBase } from '@/app/lib/paths' // keep this for GH Pages images
 
 type Card = Project & {
   image?: string
@@ -40,7 +40,7 @@ export default function ProjectsGrid({ limit }: { limit?: number }) {
             <div className="aspect-[16/10] rounded-xl mb-4 overflow-hidden bg-neutral-100">
               {p.image ? (
                 <img
-                  src={withBase(p.image)}   // ✅ works on GitHub Pages
+                  src={withBase(p.image)}
                   alt={`${p.title} cover`}
                   className="w-full h-full object-cover"
                 />
@@ -60,9 +60,14 @@ export default function ProjectsGrid({ limit }: { limit?: number }) {
           </div>
 
           <div className="mt-4 flex flex-wrap gap-2">
-            {/* Case study: external link if caseStudyUrl is set; otherwise internal page; hidden when caseStudy=false */}
+            {/* External case study URL takes priority */}
             {p.caseStudy && (p as any).caseStudyUrl ? (
-              <a className="btn-outline" href={(p as any).caseStudyUrl} target="_blank" rel="noreferrer">
+              <a
+                className="btn-outline"
+                href={(p as any).caseStudyUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Read case study
               </a>
             ) : p.caseStudy ? (

@@ -21,16 +21,15 @@ export const projects: Project[] = [
     caseStudy: false
   },
   {
-    slug: 'mindnest',
-    title: 'Mindnest — Mental Health App Prototype (Figma)',
-    summary: 'Mood tracking, guided journaling, self-care.',
-    tags: ['UX','Prototype','Figma'],
-    cover: '/mindnest.png',
-    demo: 'https://www.figma.com/proto/JtMmthD0biKAElpL1CXA2i/Good-Health-and-Well-being?node-id=1-3&starting-point-node-id=1%3A3',
-    caseStudy: true,
-    caseStudyUrl:
-      'https://new.express.adobe.com/publishedV2/urn:aaid:sc:US:ac33e092-0c61-48b0-9994-ba629cc0f8ef?promoid=Y69SGM5H&mv=other'
-  },
+  slug: 'mindnest',
+  title: 'Mindnest — Mental Health App Prototype (Figma)',
+  summary: 'Mood tracking, guided journaling, self-care.',
+  tags: ['UX','Prototype','Figma'],
+  cover: '/mindnest.png',
+  demo: 'https://www.figma.com/proto/JtMmthD0biKAElpL1CXA2i/Good-Health-and-Well-being?node-id=1-3&starting-point-node-id=1%3A3',
+  caseStudy: true,
+  caseStudyUrl: 'https://new.express.adobe.com/publishedV2/urn:aaid:sc:US:ac33e092-0c61-48b0-9994-ba629cc0f8ef?promoid=Y69SGM5H&mv=other',
+},
   {
     slug: 'path-in-motion',
     title: 'Path in Motion — Brand & Social',
