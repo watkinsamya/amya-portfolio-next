@@ -1,14 +1,13 @@
-// data/projects.ts
 export type Project = {
   slug: string;
   title: string;
   summary: string;
   tags: string[];
-  cover?: string;       // e.g. '/covers/mindnest.png'
-  demo?: string;        // external prototype link
-  code?: string;        // repo link
-  caseStudy?: boolean;  // show case study button?
-  caseStudyUrl?: string; // if provided, button opens this URL
+  cover?: string;        // e.g. '/mindnest.png' (lives in /public)
+  demo?: string;         // external prototype link
+  code?: string;         // repo link
+  caseStudy?: boolean;   // show “Read case study” button?
+  caseStudyUrl?: string; // if set, button opens here in new tab
 };
 
 export const projects: Project[] = [
@@ -47,7 +46,7 @@ export const projects: Project[] = [
     summary: 'GUI app with secure auth and expense tracking.',
     tags: ['Java','Swing','SQL'],
     cover: '/ewallet.png',
-    code: 'https://github.com/watkinsamya',
+    code: 'https://github.com/jacob-eager/Ewallet-SENG210', // ✅ updated
     caseStudy: false
   }
 ];
@@ -58,3 +57,4 @@ export function getProjectBySlug(slug: string) {
 export function getProjectSlugs() {
   return projects.map(p => p.slug);
 }
+

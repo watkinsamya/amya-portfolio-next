@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import type { Project } from '@/data/projects'
 import { projects as raw } from '@/data/projects'
-import { withBase } from '@/app/lib/paths'   // 👈 use your existing helper
+import { withBase } from '@/app/lib/paths'   // keep for GH Pages image paths
 
 type Card = Project & {
   image?: string
@@ -40,7 +40,7 @@ export default function ProjectsGrid({ limit }: { limit?: number }) {
             <div className="aspect-[16/10] rounded-xl mb-4 overflow-hidden bg-neutral-100">
               {p.image ? (
                 <img
-                  src={withBase(p.image)}     // 👈 prefix for GH Pages
+                  src={withBase(p.image)}   // ✅ works on GitHub Pages
                   alt={`${p.title} cover`}
                   className="w-full h-full object-cover"
                 />
@@ -60,11 +60,27 @@ export default function ProjectsGrid({ limit }: { limit?: number }) {
           </div>
 
           <div className="mt-4 flex flex-wrap gap-2">
-            {p.caseStudy && (
-              <Link className="btn-outline" href={`/projects/${p.slug}`}>Read case study</Link>
+            {/* Case study: external link if caseStudyUrl is set; otherwise internal page; hidden when caseStudy=false */}
+            {p.caseStudy && (p as any).caseStudyUrl ? (
+              <a className="btn-outline" href={(p as any).caseStudyUrl} target="_blank" rel="noreferrer">
+                Read case study
+              </a>
+            ) : p.caseStudy ? (
+              <Link className="btn-outline" href={`/projects/${p.slug}`}>
+                Read case study
+              </Link>
+            ) : null}
+
+            {p.repo && (
+              <a className="btn-outline" href={p.repo} target="_blank" rel="noreferrer">
+                View code
+              </a>
             )}
-            {p.repo && <a className="btn-outline" href={p.repo} target="_blank" rel="noreferrer">View code</a>}
-            {!p.repo && p.demo && <a className="btn-outline" href={p.demo} target="_blank" rel="noreferrer">View</a>}
+            {!p.repo && p.demo && (
+              <a className="btn-outline" href={p.demo} target="_blank" rel="noreferrer">
+                View
+              </a>
+            )}
           </div>
         </motion.div>
       ))}
